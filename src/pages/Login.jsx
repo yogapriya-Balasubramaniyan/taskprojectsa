@@ -7,7 +7,7 @@ const Login = () => {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
-  // Pre-seed admin credentials if not already present in Local Storage
+
   useEffect(() => {
     const existing = localStorage.getItem('adminCredentials');
     if (!existing) {
@@ -57,11 +57,8 @@ const Login = () => {
       <div className="w-full max-w-md space-y-8 rounded-2xl bg-white p-8 shadow-sm border border-slate-100">
         <div>
           <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-slate-900">
-            Sign In
+            Log In
           </h2>
-          <p className="mt-2 text-center text-sm text-slate-500">
-            Admin access dashboard
-          </p>
         </div>
         
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -86,7 +83,7 @@ const Login = () => {
                 className={`block w-full rounded-lg border px-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
                   errors.email ? 'border-red-300 ring-1 ring-red-300' : 'border-slate-300'
                 }`}
-                placeholder="admin@example.com"
+                placeholder="Enter Email Id"
               />
               {errors.email && (
                 <p className="mt-1 text-xs text-red-600">{errors.email}</p>
@@ -107,7 +104,7 @@ const Login = () => {
                 className={`block w-full rounded-lg border px-3 py-2 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
                   errors.password ? 'border-red-300 ring-1 ring-red-300' : 'border-slate-300'
                 }`}
-                placeholder="••••••••"
+                placeholder="Enter Password"
               />
               {errors.password && (
                 <p className="mt-1 text-xs text-red-600">{errors.password}</p>
