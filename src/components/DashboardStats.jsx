@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const DashboardStats = ({ tasks }) => {
   const total = tasks.length;
@@ -8,6 +8,7 @@ const DashboardStats = ({ tasks }) => {
 
   const stats = [
     { name: 'Total Tasks', value: total, color: 'bg-slate-100 text-slate-800' },
+
     { name: 'Completed Tasks', value: completed, color: 'bg-green-50 text-green-700 border-green-100' },
     { name: 'Pending Tasks', value: pending, color: 'bg-amber-50 text-amber-700 border-amber-100' },
     { name: 'High Priority', value: highPriority, color: 'bg-red-50 text-red-700 border-red-100' },
