@@ -6,7 +6,7 @@ const TaskManager = () => {
   const { tasks, deleteTask, toggleTaskStatus } = useContext(TaskContext);
 
   // Form Modal States
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [Modaltask, setModaltask] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState(null);
 
   // Search, Filter, Sort States
@@ -17,12 +17,12 @@ const TaskManager = () => {
 
   const handleEditClick = (task) => {
     setTaskToEdit(task);
-    setIsModalOpen(true);
+    setModaltask(true);
   };
 
   const handleCreateClick = () => {
     setTaskToEdit(null);
-    setIsModalOpen(true);
+    setModaltask(true);
   };
 
   const formatDate = (dateString) => {
@@ -82,9 +82,7 @@ const TaskManager = () => {
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
             Task Management
           </h2>
-          <p className="mt-1.5 text-sm text-slate-500">
-            Create, update, delete, and filter your work schedule.
-          </p>
+         
         </div>
 
         <button
@@ -285,8 +283,8 @@ const TaskManager = () => {
 
       {/* Task Creation/Editing Overlay Modal */}
       <TaskForm
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        isOpen={Modaltask}
+        onClose={() => setModaltask(false)}
         taskToEdit={taskToEdit}
       />
     </main>

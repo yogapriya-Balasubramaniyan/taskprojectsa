@@ -10,11 +10,9 @@ const Dashboard = () => {
 
       <div className="mb-6">
                <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-          Dashboard Overview
+          Dashboard TaskFlow
         </h2>
-        <p className="mt-1.5 text-sm text-slate-500">
-          Real-time metrics and task distribution analysis.
-        </p>
+       
       </div>
 
      
@@ -35,8 +33,7 @@ const Dashboard = () => {
           
           edit existing work items, or create new ones under the 
           
-          <strong>Task Management</strong> view. All tasks 
-          are kept persisted in your browser's local storage.
+          <strong>Task Management</strong> view.
         </p>
       </section>
     </main>
