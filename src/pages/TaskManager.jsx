@@ -7,21 +7,22 @@ const TaskManager = () => {
 
   // Form Modal States
   const [Modaltask, setModaltask] = useState(false);
-  const [taskToEdit, setTaskToEdit] = useState(null);
+  const [taskedit, settaskedit] = useState(null);
 
   // Search, Filter, Sort States
-  const [searchQuery, setSearchQuery] = useState('');
-  const [statusFilter, setStatusFilter] = useState('All');
-  const [priorityFilter, setPriorityFilter] = useState('All');
+  const [search, setSearch] = useState('');
+  const [status, setStatus] = useState('All');
+  const [priority, setPriority] = useState('All');
   const [sortBy, setSortBy] = useState('dueDate');
 
-  const handleEditClick = (task) => {
-    setTaskToEdit(task);
+  const handleEdit
+   = (task) => {
+    settaskedit(task);
     setModaltask(true);
   };
 
-  const handleCreateClick = () => {
-    setTaskToEdit(null);
+  const handleCreate = () => {
+    settaskedit(null);
     setModaltask(true);
   };
 
@@ -35,7 +36,7 @@ const TaskManager = () => {
     });
   };
 
-  const getPriorityColor = (priority) => {
+  const getPriority = (priority) => {
     switch (priority) {
       case 'High':
         return 'text-red-700 bg-red-50 border-red-100';
@@ -53,9 +54,9 @@ const TaskManager = () => {
   // Filter and Sort Logic
   const filteredAndSortedTasks = tasks
     .filter((task) => {
-      const matchesSearch = task.title.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesStatus = statusFilter === 'All' || task.status === statusFilter;
-      const matchesPriority = priorityFilter === 'All' || task.priority === priorityFilter;
+      const matchesSearch = task.title.toLowerCase().includes(search.toLowerCase());
+      const matchesStatus = status === 'All' || task.status === status;
+      const matchesPriority = priority === 'All' || task.priority === priority;
       return matchesSearch && matchesStatus && matchesPriority;
     })
     .sort((a, b) => {
@@ -86,7 +87,7 @@ const TaskManager = () => {
         </div>
 
         <button
-          onClick={handleCreateClick}
+          onClick={handleCreate}
           className="inline-flex items-center self-start rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500 transition-colors cursor-pointer"
         >
           <svg className="mr-1.5 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -108,8 +109,8 @@ const TaskManager = () => {
               <input
                 type="text"
                 placeholder="Search by title..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
                 className="w-full rounded-lg border border-slate-300 bg-white pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
               />
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -122,8 +123,8 @@ const TaskManager = () => {
             {/* Status Filter */}
             <div>
               <select
-                value={statusFilter}
-                onChange={(e) => setStatusFilter(e.target.value)}
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
                 className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
               >
                 <option value="All">All Statuses</option>
@@ -135,8 +136,8 @@ const TaskManager = () => {
             {/* Priority Filter */}
             <div>
               <select
-                value={priorityFilter}
-                onChange={(e) => setPriorityFilter(e.target.value)}
+                value={priority}
+                onChange={(e) => setPriority(e.target.value)}
                 className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
               >
                 <option value="All">All Priorities</option>
@@ -213,7 +214,7 @@ const TaskManager = () => {
 
                       {/* Priority cell */}
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <span className={`inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider ${getPriorityColor(task.priority)}`}>
+                        <span className={`inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider ${getPriority(task.priority)}`}>
                           {task.priority}
                         </span>
                       </td>
@@ -237,7 +238,7 @@ const TaskManager = () => {
                       <td className="px-6 py-4 whitespace-nowrap text-right">
                         <div className="flex items-center justify-end space-x-2">
                           <button
-                            onClick={() => handleEditClick(task)}
+                            onClick={() => handleEdit(task)}
                             className="rounded-lg p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-700 transition-colors cursor-pointer"
                             title="Edit Task"
                           >
@@ -272,7 +273,7 @@ const TaskManager = () => {
               Try modifying your search query, clearing filters, or add a brand new task.
             </p>
             <button
-              onClick={handleCreateClick}
+              onClick={handleCreate}
               className="mt-4 inline-flex items-center rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-indigo-500 transition-colors cursor-pointer"
             >
               Create a Task
@@ -285,7 +286,7 @@ const TaskManager = () => {
       <TaskForm
         isOpen={Modaltask}
         onClose={() => setModaltask(false)}
-        taskToEdit={taskToEdit}
+        taskedit={taskedit}
       />
     </main>
   );
