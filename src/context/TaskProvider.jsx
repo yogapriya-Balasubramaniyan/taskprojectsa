@@ -5,7 +5,7 @@ export const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState(() => {
     const savedTasks = localStorage.getItem('tasks');
     return savedTasks ? JSON.parse(savedTasks) : [
-  
+     
   {
     id: '1',
     title: 'Site Visit',
@@ -85,7 +85,7 @@ export const TaskProvider = ({ children }) => {
     dueDate: '2026-07-30',
     priority: 'High',
     status: 'Pending',
-  },
+  }
 ];
   });
 
