@@ -21,7 +21,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Retrieve stored admin credentials
+   
     const adminStr = localStorage.getItem('adminCredentials');
     const admin = adminStr 
       ? JSON.parse(adminStr) 
