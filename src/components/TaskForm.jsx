@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import TaskContext from '../context/TaskContext';
 
-const TaskForm = ({ isOpen, onClose, taskToEdit }) => {
+const TaskForm = ({ isOpen, onClose, taskedit: taskToEdit }) => {
   const { addTask, updateTask } = useContext(TaskContext);
   
   const [title, setTitle] = useState('');
