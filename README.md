@@ -23,7 +23,7 @@ A responsive, lightweight Task Management Board application built using **React 
 3. **Task CRUD Operations**
    - **Create / Edit**: Uses a dialog modal form with validation (Title and Due Date are mandatory).
    - **Delete**: Quick removal from the table list.
-   - **Status Toggle**: Clean pill badge buttons ("Pending", "In Progress", "Completed") to directly update task state from the table row.
+   - **Status Toggle**: Clean pill badge buttons ("Pending", "Completed") to directly update task state from the table row.
 
 4. **Filter & Sort Toolbar**
    - **Search**: Dynamic case-insensitive search by task titles.
