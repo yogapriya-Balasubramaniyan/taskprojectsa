@@ -20,7 +20,7 @@ export const TaskProvider = ({ children }) => {
           description: 'Check the quality and quantity of cement, steel, bricks, and other materials delivered to the site.',
           dueDate: '2026-07-21',
           priority: 'High',
-          status: 'In Progress',
+          status: 'Pending',
         },
         {
           id: '3',
@@ -60,7 +60,7 @@ export const TaskProvider = ({ children }) => {
           description: 'Verify plumbing pipelines and water connections before wall finishing work begins.',
           dueDate: '2026-07-26',
           priority: 'Medium',
-          status: 'In Progress',
+          status: 'Pending',
         },
         {
           id: '8',
