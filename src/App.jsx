@@ -16,8 +16,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
-          
-          {/* Side navigation nested layouts */}
+        
           <Route
             path="/"
             element={
@@ -31,7 +30,7 @@ const App = () => {
             <Route path="tasks" element={<TaskManager />} />
           </Route>
           
-          {/* Catch-all redirect */}
+         
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </BrowserRouter>

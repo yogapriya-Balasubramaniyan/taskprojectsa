@@ -5,11 +5,11 @@ import TaskForm from '../components/TaskForm';
 const TaskManager = () => {
   const { tasks, deleteTask, toggleTaskStatus } = useContext(TaskContext);
 
-  // Form Modal States
+  
   const [Modaltask, setModaltask] = useState(false);
   const [taskedit, settaskedit] = useState(null);
 
-  // Search, Filter, Sort States
+ 
   const [search, setSearch] = useState('');
   const [status, setStatus] = useState('All');
   const [priority, setPriority] = useState('All');
@@ -51,7 +51,6 @@ const TaskManager = () => {
 
   const priorityWeights = { High: 3, Medium: 2, Low: 1 };
 
-  // Filter and Sort Logic
   const filteredAndSortedTasks = tasks
     .filter((task) => {
       const matchesSearch = task.title.toLowerCase().includes(search.toLowerCase());
@@ -77,7 +76,7 @@ const TaskManager = () => {
   return (
     <main className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       
-      {/* Title Header */}
+  
       <div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
         <div>
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
@@ -97,14 +96,14 @@ const TaskManager = () => {
         </button>
       </div>
 
-      {/* Toolbar controls */}
+   
       <section className="mb-6 rounded-xl border border-slate-200 bg-white p-4 shadow-2xs">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           
-          {/* Search + Filter Selects */}
+          
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 md:flex md:flex-1 md:items-center md:max-w-3xl">
             
-            {/* Search */}
+           
             <div className="relative md:w-64">
               <input
                 type="text"
@@ -120,7 +119,7 @@ const TaskManager = () => {
               </div>
             </div>
 
-            {/* Status Filter */}
+          
             <div>
               <select
                 value={status}
@@ -148,7 +147,7 @@ const TaskManager = () => {
             </div>
           </div>
 
-          {/* Sort Selector */}
+        
           <div className="flex items-center space-x-2 border-t border-slate-100 pt-3 md:border-0 md:pt-0">
             <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
               Sort:
@@ -167,7 +166,7 @@ const TaskManager = () => {
         </div>
       </section>
 
-      {/* Task List Table */}
+   
       <section className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-2xs">
         {filteredAndSortedTasks.length > 0 ? (
           <div className="overflow-x-auto">
@@ -207,19 +206,19 @@ const TaskManager = () => {
                         )}
                       </td>
 
-                      {/* Due date cell */}
+                      
                       <td className="px-6 py-4 whitespace-nowrap text-slate-600">
                         {formatDate(task.dueDate)}
                       </td>
 
-                      {/* Priority cell */}
+                    
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span className={`inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider ${getPriority(task.priority)}`}>
                           {task.priority}
                         </span>
                       </td>
 
-                      {/* Status Button Toggle (No Checkbox) */}
+                    
                       <td className="px-6 py-4 whitespace-nowrap">
                         <button
                           onClick={() => toggleTaskStatus(task.id)}
@@ -282,7 +281,7 @@ const TaskManager = () => {
         )}
       </section>
 
-      {/* Task Creation/Editing Overlay Modal */}
+    
       <TaskForm
         isOpen={Modaltask}
         onClose={() => setModaltask(false)}

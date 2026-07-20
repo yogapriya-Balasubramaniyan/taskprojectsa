@@ -96,9 +96,9 @@ const Layout = () => {
         </div>
       </header>
 
-      {/* Desktop Sidebar */}
+     
       <aside className="hidden w-64 flex-col border-r border-slate-200 bg-white p-5 md:flex shrink-0">
-        {/* App Logo */}
+      
         <div className="flex items-center gap-2.5 mb-8">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg 
           bg-indigo-600 text-white font-bold text-lg">
