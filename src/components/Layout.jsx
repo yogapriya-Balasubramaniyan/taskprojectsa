@@ -49,7 +49,7 @@ const Layout = () => {
   return (
     <div className="flex min-h-screen flex-col md:flex-row bg-slate-50">
       
-      {/* Mobile Top Navbar */}
+      
       <header className="flex h-16 items-center justify-between border-b 
       border-slate-205 bg-white px-4 md:hidden shrink-0">
         <div className="flex items-center gap-2">
@@ -109,7 +109,6 @@ const Layout = () => {
           </span>
         </div>
 
-        {/* Navigation Links */}
         <nav className="flex-1 space-y-1">
           {navItems.map((item) => (
             <NavLink
@@ -130,7 +129,7 @@ const Layout = () => {
           ))}
         </nav>
 
-        {/* Sidebar Footer (User Info & Logout) */}
+
         <div className="border-t border-slate-100 pt-4 mt-auto">
           <div className="mb-4 px-3">
             <span className="block text-xs text-slate-400">Logged in as</span>
@@ -153,7 +152,7 @@ const Layout = () => {
         </div>
       </aside>
 
-      {/* Main Content Pane */}
+     
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Outlet />
       </div>
